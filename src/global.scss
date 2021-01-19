@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -24,3 +24,43 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto:wght@400;700&display=swap");
+
+a {
+  text-decoration: none;
+}
+
+.text-purple {
+  color: #1a205a;
+}
+
+.bg-purple {
+  background-color: #1a205a;
+}
+
+.text-yellow {
+  color: #f2d94c;
+}
+
+.bg-yellow {
+  background-color: #f2d94c;
+}
+
+.text-orange {
+  color: #e77834;
+}
+
+.bg-orange {
+  background-color: #e77834;
+}
+
+.text-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+.text-roboto {
+  font-family: "Roboto", sans-serif;
+}
