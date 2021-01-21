@@ -1,4 +1,56 @@
 <ion-content [fullscreen]="true">
   <app-header></app-header>
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-card color="warning">
+    <ion-card-header class="ion-text-center">
+      <ion-card-subtitle>Total Issued Cards</ion-card-subtitle>
+      <ion-card-title>{{totalCards | number}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card color="primary">
+    <ion-card-header class="ion-text-center">
+      <ion-card-subtitle>Total Issued Cash</ion-card-subtitle>
+      <ion-card-title>{{totalCash | number}} {{currency}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <hr />
+
+  <ion-row class="ion-text-center">
+    <ion-col>
+      <h1 class="text-title">Cards Growth</h1>
+    </ion-col>
+  </ion-row>
+
+  <canvas id="cardsBarchart" style="width: 100%" height="200"></canvas>
+
+  <hr />
+
+  <ion-row class="ion-text-center">
+    <ion-col>
+      <h1 class="text-title">Cash Growth</h1>
+    </ion-col>
+  </ion-row>
+
+  <canvas id="cashBarchart" style="width: 100%" height="200"></canvas>
+
+  <hr />
+
+  <ion-row class="ion-text-center">
+    <ion-col>
+      <h1 class="text-title">Card Types</h1>
+    </ion-col>
+  </ion-row>
+
+  <canvas id="cardsPiechart" style="width: 100%" height="200"></canvas>
+
+  <hr />
+
+  <ion-row class="ion-text-center">
+    <ion-col>
+      <h1 class="text-title">Cash Types</h1>
+    </ion-col>
+  </ion-row>
+
+  <canvas id="cashPiechart" style="width: 100%" height="200"></canvas>
 </ion-content>
