@@ -5,6 +5,16 @@ export class CardListItem {
     public amount?: number,
     public initialAmount?: number,
     public currency?: string,
-    public deleted?: boolean
+    public deleted?: boolean,
+    public histroy?: CardListItemHistory
+  ) {}
+}
+
+export class CardListItemHistory {
+  constructor(
+    public icon?: string,
+    public title?: string,
+    public description?: string,
+    public date?: Date
   ) {}
 }

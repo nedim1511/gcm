@@ -10,7 +10,7 @@ const routes: Routes = [
     component: Tab4Page
   },
   {
-    path: 'details',
+    path: 'details/:id',
     component: CardDetailComponent
   }
 ];

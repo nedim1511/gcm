@@ -44,6 +44,6 @@ export class Tab4Page {
   }
 
   goToDetail(id: number) {
-    this.router.navigate(["details"], { relativeTo: this.route });
+    this.router.navigate(["details/" + id], { relativeTo: this.route });
   }
 }

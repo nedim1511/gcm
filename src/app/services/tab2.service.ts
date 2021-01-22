@@ -15,4 +15,8 @@ export class Tab2Service {
   get(): Observable<CardListItem[]> {
     return this.http.get<CardListItem[]>(this.URL + "/all");
   }
+
+  find(id: number): Observable<CardListItem> {
+    return this.http.get(this.URL + "/findById/" + id);
+  }
 }

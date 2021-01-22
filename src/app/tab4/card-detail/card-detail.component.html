@@ -3,10 +3,57 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Card Details</ion-title>
+    <ion-title>Gift Card Detail Page</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <h1 class="text-title">Card Details Go Here</h1>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-text
+          >ID: <strong>{{ item.id }}</strong></ion-text
+        >
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text
+          >GC ID: <strong>{{ item.id }}</strong></ion-text
+        >
+      </ion-col>
+    </ion-row>
+    <hr />
+    <ion-row>
+      <ion-col>
+        <h1 class="text-title">
+          {{ item.currency }} {{ item.amount | number }}
+        </h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" size="large"> Redeem </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="full" size="large"> Top Up </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <hr />
+    <ion-row>
+      <ion-col>
+        <h2 class="text-title">Log</h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-list>
+      <ion-item *ngFor="let log of item.histroy">
+        <ion-label>
+          {{ log.title }} - {{ log.description }} -
+          {{ log.date | date: "short" }}
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
 </ion-content>
