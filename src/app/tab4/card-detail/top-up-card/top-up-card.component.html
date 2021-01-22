@@ -1,3 +1,90 @@
-<p>
-  top-up-card works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Gift Card Top Up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="item">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h2 class="text-title">Information</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text
+          >ID: <strong>{{ item.id }}</strong></ion-text
+        >
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-segment
+          [(ngModel)]="segment"
+          (ionChange)="segment = $event.detail.value"
+        >
+          <ion-segment-button value="tu">
+            <ion-label>Top Up</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="sa">
+            <ion-label>Set Amount</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+    </ion-row>
+
+    <br />
+
+    <ion-row>
+      <ion-col>
+        <ion-text
+          >Current Amount:
+          <strong>{{ item.currency }} {{ item.amount }}</strong></ion-text
+        >
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text
+          >New Amount:
+          <strong
+            >{{ item.currency }}
+            {{ segment === "tu" ? (item.amount + amount | number) : amount | number }}</strong
+          ></ion-text
+        >
+      </ion-col>
+    </ion-row>
+    <hr />
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Amount ({{ item.currency }})</ion-label>
+          <ion-input [(ngModel)]="amount"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Add a comment</ion-label>
+          <ion-textarea [(ngModel)]="comment"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <hr />
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="topUp()" expand="full" size="large">
+          Submit
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

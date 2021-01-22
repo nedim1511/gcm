@@ -24,4 +24,11 @@ export class Tab2Service {
   redeem(id: number, newAmount: number): Observable<CardListItem> {
     return this.http.put(this.URL + "/redeem/" + id, { newAmount });
   }
+
+  topUp(id: number, newAmount: number): Observable<CardListItem> {
+    return this.http.put(this.URL + "/topup/" + id, {
+      setAmount: true,
+      amount: newAmount,
+    });
+  }
 }
