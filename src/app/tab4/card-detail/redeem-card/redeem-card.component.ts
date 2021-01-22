@@ -24,7 +24,7 @@ export class RedeemCardComponent implements OnInit {
     this.get();
   }
 
-  ngOnInit() {} 
+  ngOnInit() {}
 
   private get() {
     this.service.find(+this.route.snapshot.params.id).subscribe((res) => {
@@ -33,6 +33,19 @@ export class RedeemCardComponent implements OnInit {
   }
 
   redeem(max?: boolean) {
+    if (this.amount > this.item.amount) {
+      this.amount = 0;
+      alert("Redeem amount cannot be higher than current amount.");
+      return;
+    }
+    if (this.amount === 0) {
+      alert("Redeem amount must be greater than 0.");
+      return;
+    }
+    if (this.comment.length > 1000) {
+      alert("Comment length cannot exceed 1000 characters.");
+      return;
+    }
     this.amount = max ? this.item.amount : this.amount;
     this.storage.set("redeemAmount", this.amount);
     this.storage.set("redeemComment", this.comment);

@@ -44,7 +44,7 @@ export class RedeemConfirmComponent implements OnInit {
 
   confirm() {
     this.service.redeem(this.item.id, this.amount).subscribe((res) => {
-      this.router.navigate(["/tabs/tab4"]).then(() => {
+      this.router.navigate(["/tabs/tab4/details/" + this.item.id]).then(() => {
         // Clear storage
         this.storage.remove("redeemAmount");
         this.storage.remove("redeemComment");
