@@ -1,18 +1,18 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { DashboardData } from "../models/dashboard-data.model";
+import { CardListItem } from "../models/card-list-item.model";
 import { BACKEND_API_URL } from "../shared/constants";
 
 @Injectable({
   providedIn: "root",
 })
-export class Tab1Service {
+export class Tab2Service {
   private readonly URL = BACKEND_API_URL + "/api/gcm";
 
   constructor(private http: HttpClient) {}
 
-  public getDashboardData(): Observable<DashboardData> {
-    return this.http.get<DashboardData>(this.URL + "/overview");
+  get(): Observable<CardListItem[]> {
+    return this.http.get<CardListItem[]>(this.URL + "/all");
   }
 }

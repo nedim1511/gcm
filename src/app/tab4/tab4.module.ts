@@ -1,20 +1,17 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 
-import { IonicModule } from '@ionic/angular';
+import { IonicModule } from "@ionic/angular";
 
-import { Tab4PageRoutingModule } from './tab4-routing.module';
+import { Tab4PageRoutingModule } from "./tab4-routing.module";
 
-import { Tab4Page } from './tab4.page';
+import { Tab4Page } from "./tab4.page";
+import { GiftCardFilterPipe } from "../pipes/gift-card-filter.pipe";
+import { CardDetailComponent } from "./card-detail/card-detail.component";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    Tab4PageRoutingModule
-  ],
-  declarations: [Tab4Page]
+  imports: [CommonModule, FormsModule, IonicModule, Tab4PageRoutingModule],
+  declarations: [Tab4Page, GiftCardFilterPipe, CardDetailComponent],
 })
 export class Tab4PageModule {}

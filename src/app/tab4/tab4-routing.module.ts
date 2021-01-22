@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CardDetailComponent } from './card-detail/card-detail.component';
 
 import { Tab4Page } from './tab4.page';
 
@@ -7,6 +8,10 @@ const routes: Routes = [
   {
     path: '',
     component: Tab4Page
+  },
+  {
+    path: 'details',
+    component: CardDetailComponent
   }
 ];
 

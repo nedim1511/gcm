@@ -1,9 +1,34 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>tab4</ion-title>
+    <ion-title>Gift Card List All</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-searchbar [(ngModel)]="searchText"></ion-searchbar>
+  <ion-segment
+    [(ngModel)]="segment"
+    (ionChange)="segmentChanged($event.detail.value)"
+  >
+    <ion-segment-button value="all">
+      <ion-label>All</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="active">
+      <ion-label>Active</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="deleted">
+      <ion-label>Deleted</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
+  <ion-list>
+    <ion-item
+      (click)="goToDetail(item.id)"
+      *ngFor="let item of filteredList | giftCardFilter: searchText"
+    >
+      <ion-label [color]="item.deleted ? 'danger' : 'success'"
+        >ID: {{item.id}} - {{item.currency}} {{item.amount | number}}</ion-label
+      >
+    </ion-item>
+  </ion-list>
 </ion-content>
