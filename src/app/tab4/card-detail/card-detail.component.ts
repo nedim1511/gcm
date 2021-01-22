@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { CardListItem } from "src/app/models/card-list-item.model";
 import { Tab2Service } from "src/app/services/tab2.service";
 
@@ -11,7 +11,11 @@ import { Tab2Service } from "src/app/services/tab2.service";
 export class CardDetailComponent implements OnInit {
   item: CardListItem;
 
-  constructor(private service: Tab2Service, private route: ActivatedRoute) {
+  constructor(
+    private service: Tab2Service,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
     this.get();
   }
 
@@ -21,5 +25,13 @@ export class CardDetailComponent implements OnInit {
     this.service.find(+this.route.snapshot.params.id).subscribe((res) => {
       this.item = res;
     });
+  }
+
+  goToRedeem() {
+    this.router.navigate(["redeem"], { relativeTo: this.route });
+  }
+
+  goToTopUp() {
+    this.router.navigate(["top-up"], { relativeTo: this.route });
   }
 }

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Gift Card Redeem Confirm</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="item">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h2 class="text-title">Information</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text
+          >ID: <strong>{{ item.id }}</strong></ion-text
+        >
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text
+          >Are you sure you want to proceed? The new amount will be:</ion-text
+        >
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h1 class="text-title">
+          {{ item.currency }} {{ item.amount - amount | number }}
+        </h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-text><strong>Comment:</strong></ion-text>
+        <br />
+        <ion-text>{{ comment }}</ion-text>
+      </ion-col>
+    </ion-row>
+
+    <hr />
+
+    <br><br><br><br>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="confirm()" expand="full" size="large">
+          Confirm
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

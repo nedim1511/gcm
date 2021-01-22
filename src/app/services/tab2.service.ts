@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Storage } from "@ionic/storage";
 import { Observable } from "rxjs";
 import { CardListItem } from "../models/card-list-item.model";
 import { BACKEND_API_URL } from "../shared/constants";
@@ -10,7 +11,7 @@ import { BACKEND_API_URL } from "../shared/constants";
 export class Tab2Service {
   private readonly URL = BACKEND_API_URL + "/api/gcm";
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private storage: Storage) {}
 
   get(): Observable<CardListItem[]> {
     return this.http.get<CardListItem[]>(this.URL + "/all");
@@ -18,5 +19,9 @@ export class Tab2Service {
 
   find(id: number): Observable<CardListItem> {
     return this.http.get(this.URL + "/findById/" + id);
+  }
+
+  redeem(id: number, newAmount: number): Observable<CardListItem> {
+    return this.http.put(this.URL + "/redeem/" + id, { newAmount });
   }
 }

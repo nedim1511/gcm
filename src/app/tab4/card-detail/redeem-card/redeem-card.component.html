@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Redeem Gift Card Page</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="item">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h2 class="text-title">Information</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text
+          >ID: <strong>{{ item.id }}</strong></ion-text
+        >
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text
+          >Current Amount:
+          <strong>{{ item.currency }} {{ item.amount }}</strong></ion-text
+        >
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text
+          >New Amount:
+          <strong
+            >{{ item.currency }} {{ item.amount - amount }}</strong
+          ></ion-text
+        >
+      </ion-col>
+    </ion-row>
+    <hr />
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Amount ({{ item.currency }})</ion-label>
+          <ion-input [(ngModel)]="amount"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Add a comment</ion-label>
+          <ion-textarea [(ngModel)]="comment"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <hr />
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="redeem()" expand="full" size="large">
+          Redeem
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="redeem(true)" expand="full" size="large">
+          Redeem MAX
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

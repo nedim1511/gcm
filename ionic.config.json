@@ -1,5 +1,7 @@
 {
   "name": "Gift Card Manager",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
