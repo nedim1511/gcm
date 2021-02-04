@@ -29,7 +29,7 @@ export class ConfirmTopUpComponent implements OnInit {
 
   private loadRedeemData() {
     this.storage.get("topUpAmount").then((val) => {
-      this.amount = val;
+      this.amount = +val;
     });
     this.storage.get("topUpComment").then((val) => {
       this.comment = val;

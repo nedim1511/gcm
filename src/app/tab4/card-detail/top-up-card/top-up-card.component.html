@@ -54,7 +54,7 @@
           >New Amount:
           <strong
             >{{ item.currency }}
-            {{ segment === "tu" ? (item.amount + amount | number) : amount | number }}</strong
+            {{ segment === "tu" ? ((item.amount + +amount) | number) : (+amount | number) }}</strong
           ></ion-text
         >
       </ion-col>

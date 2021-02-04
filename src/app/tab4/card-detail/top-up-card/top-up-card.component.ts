@@ -34,9 +34,18 @@ export class TopUpCardComponent implements OnInit {
   }
 
   topUp() {
-    this.amount =
-      this.segment === "tu" ? (this.item.amount += this.amount) : this.amount;
-    this.storage.set("topUpAmount", this.amount);
+    if (this.comment && this.comment.length > 1000) {
+      alert("Comment cannot have more than 1000 characters");
+      return;
+    }
+    if (this.amount === 0) {
+      alert("Top up amount must be greater than 0.");
+      return;
+    }
+    this.storage.set(
+      "topUpAmount",
+      this.segment === "tu" ? (this.item.amount += +this.amount) : +this.amount
+    );
     this.storage.set("topUpComment", this.comment);
     this.router.navigate(["confirm"], { relativeTo: this.route });
   }

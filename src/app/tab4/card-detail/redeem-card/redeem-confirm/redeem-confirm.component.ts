@@ -29,7 +29,7 @@ export class RedeemConfirmComponent implements OnInit {
 
   private loadRedeemData() {
     this.storage.get("redeemAmount").then((val) => {
-      this.amount = val;
+      this.amount = +val;
     });
     this.storage.get("redeemComment").then((val) => {
       this.comment = val;

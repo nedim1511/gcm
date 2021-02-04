@@ -42,7 +42,7 @@ export class RedeemCardComponent implements OnInit {
       alert("Redeem amount must be greater than 0.");
       return;
     }
-    if (this.comment.length > 1000) {
+    if (this.comment && this.comment.length > 1000) {
       alert("Comment length cannot exceed 1000 characters.");
       return;
     }
