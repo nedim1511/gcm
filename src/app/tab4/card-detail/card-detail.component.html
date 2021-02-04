@@ -59,8 +59,9 @@
     </ion-row>
 
     <ion-list>
-      <ion-item *ngFor="let log of item.histroy">
+      <ion-item *ngFor="let log of item.history">
         <ion-label>
+          <ion-icon [name]="log.icon"></ion-icon>
           {{ log.title }} - {{ log.description }} -
           {{ log.date | date: "short" }}
         </ion-label>

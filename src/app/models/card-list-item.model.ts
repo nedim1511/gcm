@@ -6,7 +6,7 @@ export class CardListItem {
     public initialAmount?: number,
     public currency?: string,
     public deleted?: boolean,
-    public histroy?: CardListItemHistory,
+    public history?: CardListItemHistory,
     public creationDate?: any
   ) {}
 }
