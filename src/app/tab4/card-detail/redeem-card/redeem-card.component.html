@@ -25,7 +25,7 @@
       <ion-col>
         <ion-text
           >Current Amount:
-          <strong>{{ item.currency }} {{ item.amount }}</strong></ion-text
+          <strong>{{ item.currency }} {{ item.amount | number }}</strong></ion-text
         >
       </ion-col>
     </ion-row>
@@ -34,7 +34,7 @@
         <ion-text
           >New Amount:
           <strong
-            >{{ item.currency }} {{ item.amount - amount }}</strong
+            >{{ item.currency }} {{ (item.amount - amount) | number }}</strong
           ></ion-text
         >
       </ion-col>
