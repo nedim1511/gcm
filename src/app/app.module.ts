@@ -9,9 +9,9 @@ import { StatusBar } from "@ionic-native/status-bar/ngx";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http";
-import { IonicStorageModule } from '@ionic/storage';
+import { IonicStorageModule } from "@ionic/storage";
 import { SocialSharing } from "@ionic-native/social-sharing/ngx";
-
+import { QRScanner } from "@ionic-native/qr-scanner/ngx";
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +27,8 @@ import { SocialSharing } from "@ionic-native/social-sharing/ngx";
     StatusBar,
     SplashScreen,
     SocialSharing,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    QRScanner,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent],
 })
