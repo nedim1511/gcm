@@ -10,6 +10,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http";
 import { IonicStorageModule } from '@ionic/storage';
+import { SocialSharing } from "@ionic-native/social-sharing/ngx";
 
 
 @NgModule({
@@ -20,11 +21,12 @@ import { IonicStorageModule } from '@ionic/storage';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    SocialSharing,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],

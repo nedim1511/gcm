@@ -1,9 +1,87 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>tab2</ion-title>
+    <ion-title>Create Gift Card</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-segment
+    color="primary"
+    style="padding: 20px"
+    [(ngModel)]="segment"
+    (ionChange)="numberChanged($event.detail.value)"
+  >
+    <ion-segment-button value="10">
+      <ion-label>10</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="20">
+      <ion-label>20</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="50">
+      <ion-label>50</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="100">
+      <ion-label>100</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-item color="light">
+          <ion-label
+            ><ion-icon name="pencil-outline"></ion-icon> Enter an amount
+            (required):</ion-label
+          >
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Amount</ion-label>
+          <ion-input
+            [(ngModel)]="amount"
+            placeholder="Enter gift card amount"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <br />
+
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-item color="light">
+          <ion-label
+            ><ion-icon name="chatbubble-outline"></ion-icon> Add a comment
+            (optional):</ion-label
+          >
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Comment</ion-label>
+          <ion-textarea
+            [(ngModel)]="comment"
+            placeholder="Add a comment for a log to get more insights later"
+          ></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <br />
+
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="issueCard()" class="ion-text-center" expand="full" color="success"
+            >Issue Gift Card</ion-button
+          >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
