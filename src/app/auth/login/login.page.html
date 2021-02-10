@@ -6,35 +6,26 @@
       <ion-row color="primary" justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
           <div class="ion-text-center">
-            <h3>Login</h3>
-          </div>
-          <div padding>
-            <ion-item>
-              <ion-input
-                name="email"
-                type="email"
-                placeholder="your@email.com"
-                ngModel
-                required
-              ></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input
-                name="password"
-                type="password"
-                placeholder="Password"
-                ngModel
-                required
-              ></ion-input>
-            </ion-item>
+            <h3>Welcome</h3>
           </div>
           <div padding>
             <ion-button
               size="large"
               type="submit"
-              [disabled]="form.invalid"
               expand="block"
               >Login</ion-button
+            >
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row color="warning" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div padding>
+            <ion-button
+              type="submit"
+              expand="block"
+              color="warning"
+              >Or create an account</ion-button
             >
           </div>
         </ion-col>
