@@ -25,6 +25,7 @@ export class Tab3Page {
 
   ionViewDidLeave() {
     this.scanSubscription.unsubscribe();
+    this.qrScanner.hide();
   }
 
   startQRScanner() {
@@ -70,7 +71,6 @@ export class Tab3Page {
             }
           },
           (error) => {
-            alert(JSON.stringify(error));
             this.notFound();
           }
         );

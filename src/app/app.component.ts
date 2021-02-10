@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import Auth0Cordova from '@auth0/cordova';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -22,6 +22,11 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      // Redirect back to app after authenticating
+      (window as any).handleOpenURL = (url: string) => {
+        Auth0Cordova.onRedirectUri(url);
+      }
     });
   }
 }

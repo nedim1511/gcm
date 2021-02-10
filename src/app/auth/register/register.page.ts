@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { RegisterModel } from "src/app/models/register.model";
+import { UserMetaData } from "src/app/models/user-meta-data.model";
+import { AUTH0_CLIENT_ID } from "src/app/shared/constants";
 import { RegisterService } from "./register.service";
 
 @Component({
@@ -18,7 +21,38 @@ export class RegisterPage implements OnInit {
 
   register(data: any) {
     const values = data.form.value;
-    console.log(values);
-    this.router.navigate(["confirm-email"], { relativeTo: this.route });
+    const metadata = new UserMetaData(
+      values.address,
+      values.city,
+      values.zip,
+      values.country,
+      values.phone,
+      values.name,
+      null
+    );
+    const model = new RegisterModel(
+      AUTH0_CLIENT_ID,
+      values.email,
+      values.password,
+      "?connection",
+      values.firstName,
+      values.lastName,
+      metadata
+    );
+    
+    if (this.isFormValid(values)) {
+      this.service.register(model).subscribe((res) => {
+        console.log(res);
+        this.router.navigate(["confirm-email"], { relativeTo: this.route });
+      });
+    }
+  }
+
+  private isFormValid(values: any): boolean {
+    if (values.password !== values.confirm) {
+      alert("Your passwords do not match.");
+      return false;
+    }
+    return true;
   }
 }
