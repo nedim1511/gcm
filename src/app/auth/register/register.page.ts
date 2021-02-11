@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { RegisterModel } from "src/app/models/register.model";
 import { UserMetaData } from "src/app/models/user-meta-data.model";
-import { AUTH0_CLIENT_ID } from "src/app/shared/constants";
+import { AUTH0_CLIENT_ID, AUTH0_CONNECTION } from "src/app/shared/constants";
 import { RegisterService } from "./register.service";
 
 @Component({
@@ -34,7 +34,7 @@ export class RegisterPage implements OnInit {
       AUTH0_CLIENT_ID,
       values.email,
       values.password,
-      "?connection",
+      AUTH0_CONNECTION,
       values.firstName,
       values.lastName,
       metadata

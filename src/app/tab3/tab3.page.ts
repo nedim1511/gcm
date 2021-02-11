@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from "@angular/core";
+import { AfterViewInit, Component, OnDestroy } from "@angular/core";
 import { Router } from "@angular/router";
 import { QRScanner, QRScannerStatus } from "@ionic-native/qr-scanner/ngx";
 import { AlertController } from "@ionic/angular";
@@ -10,7 +10,7 @@ import { Tab3Service } from "../services/tab3.service";
   templateUrl: "tab3.page.html",
   styleUrls: ["tab3.page.scss"],
 })
-export class Tab3Page {
+export class Tab3Page implements OnDestroy {
   scanSubscription: Subscription;
   constructor(
     private qrScanner: QRScanner,
@@ -19,13 +19,22 @@ export class Tab3Page {
     public alertController: AlertController
   ) {}
 
+  ngOnDestroy() {
+    this.ionViewDidLeave();
+  }
+
   ionViewWillEnter() {
     this.startQRScanner();
   }
 
   ionViewDidLeave() {
-    this.scanSubscription.unsubscribe();
-    this.qrScanner.hide();
+    if(this.scanSubscription){
+      this.scanSubscription.unsubscribe();
+    }    
+    if(this.qrScanner){
+      this.qrScanner.hide();
+      this.qrScanner.destroy();
+    }
   }
 
   startQRScanner() {
@@ -51,6 +60,7 @@ export class Tab3Page {
         this.service.getScannedDataByUrl(text).subscribe(
           (res) => {
             if (res && res.id) {
+              this.ionViewDidLeave();
               this.router.navigate(["tabs/tab4/details/" + res.id]);
             } else {
               this.notFound();
@@ -64,6 +74,7 @@ export class Tab3Page {
         this.service.getScannedData(text).subscribe(
           (res) => {
             if (res && res.id) {
+              this.ionViewDidLeave();
               this.router.navigate(["tabs/tab4/details/" + res.id]);
             } else {
               alert("Nema ID");
