@@ -1,9 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>tab5</ion-title>
+    <ion-title>Settings Page</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list [inset]="true">
+    <ion-item (click)="goToMyAccount()">
+      <ion-icon color="primary" name="person-outline" slot="start"></ion-icon>
+      <ion-label>My Account</ion-label>
+    </ion-item>
+    <ion-item (click)="goToMemberList()">
+      <ion-icon color="primary" name="people-outline" slot="start"></ion-icon>
+      <ion-label>Member List</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon (click)="goToChangePassword()" color="primary" name="lock-closed-outline" slot="start"></ion-icon>
+      <ion-label>Change Password</ion-label>
+    </ion-item>
+    <br>
+    <ion-button expand="full" [color]="'primary'" fill="solid">Logout</ion-button>
+  </ion-list>
 </ion-content>
