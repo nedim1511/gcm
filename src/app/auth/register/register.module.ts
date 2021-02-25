@@ -7,8 +7,6 @@ import { RegisterPage } from './register.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RegisterService } from './register.service';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
-import { SafariViewController } from '@ionic-native/safari-view-controller/ngx';
-import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   imports: [
@@ -16,10 +14,9 @@ import { IonicStorageModule } from '@ionic/storage';
     FormsModule,
     IonicModule,
     RegisterPageRoutingModule,
-    SharedModule,
-    IonicStorageModule
+    SharedModule
   ],
   declarations: [RegisterPage, ConfirmEmailComponent],
-  providers: [RegisterService, SafariViewController]
+  providers: [RegisterService]
 })
 export class RegisterPageModule {}
