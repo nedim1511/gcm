@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-tab5',
@@ -7,12 +8,21 @@ import { Component } from '@angular/core';
 })
 export class Tab5Page {
 
-  constructor() { }
+  constructor(
+      private router: Router,
+      private route: ActivatedRoute
+  ) { }
 
-  goToMyAccount() {}
+  goToMyAccount() {
+    this.router.navigate(['my-account'], {relativeTo: this.route});
+  }
 
-  goToChangePassword() {}
+  goToChangePassword() {
+    this.router.navigate(['change-password'], {relativeTo: this.route});
+  }
 
-  goToMemberList() {}
+  goToMemberList() {
+    this.router.navigate(['member-list'], {relativeTo: this.route});
+  }
 
 }
