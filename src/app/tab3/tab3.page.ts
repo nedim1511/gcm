@@ -24,7 +24,9 @@ export class Tab3Page {
   }
 
   ionViewDidLeave() {
-    this.scanSubscription.unsubscribe();
+    if (this.scanSubscription) {
+      this.scanSubscription.unsubscribe();
+    }
   }
 
   startQRScanner() {

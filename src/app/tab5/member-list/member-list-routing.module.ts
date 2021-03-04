@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: MemberListPage
+  },
+  {
+    path: 'user-account',
+    loadChildren: () => import('./user-account/user-account.module').then( m => m.UserAccountPageModule)
   }
 ];
 
