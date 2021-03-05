@@ -43,7 +43,7 @@
           </div>
           <hr>
           <div padding *ngIf="account && account.id">
-            <ion-button  size="large" type="button" [disabled]="false" expand="block" routerLink="/tabs/tab5/reset-password">
+            <ion-button  size="large" type="button" [disabled]="false" expand="block" [routerLink]="'/tabs/tab5/reset-password/' + account.id">
               Reset Password
             </ion-button>
           </div>

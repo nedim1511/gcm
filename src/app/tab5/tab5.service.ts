@@ -34,4 +34,8 @@ export class Tab5Service {
   deleteUser(id?: string) {
     return this.http.delete(this.URL + '/' + id);
   }
+
+  resetPassword(userId: string, password: string): Observable<any> {
+    return this.http.post(BACKEND_API_URL + '/api/um/reset-password', {user_id: userId, new_password: password});
+  }
 }
