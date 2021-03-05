@@ -38,7 +38,7 @@ export class Tab4Page {
         this.filteredList = this.list.filter((item) => item.amount > 0);
         break;
       default:
-        this.filteredList = this.list.filter((item) => item.amount < 0);
+        this.filteredList = this.list.filter((item) => item.amount === 0);
         break;
     }
   }
