@@ -78,7 +78,7 @@ export class Tab2Page {
       .share(
         null,
         null,
-        '../../assets/images/demo_share_image.png'
+        'https://polycommerce.ba/demo_share_image.png'
       )
       .then(() => {
         this.goToAllCards();
