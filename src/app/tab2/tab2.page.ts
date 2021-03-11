@@ -34,6 +34,7 @@ export class Tab2Page {
     }
     if (this.comment && this.comment.length > 1000) {
       alert('Comment cannot have more than 1000 characters');
+      return;
     }
     this.confirmIssue();
   }
