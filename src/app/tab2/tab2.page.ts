@@ -1,16 +1,16 @@
-import { Component } from "@angular/core";
-import { Router } from "@angular/router";
-import { AlertController } from "@ionic/angular";
-import { Tab2Service } from "../services/tab2.service";
-import { SocialSharing } from "@ionic-native/social-sharing/ngx";
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+import { Tab2Service } from '../services/tab2.service';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 @Component({
-  selector: "app-tab2",
-  templateUrl: "tab2.page.html",
-  styleUrls: ["tab2.page.scss"],
+  selector: 'app-tab2',
+  templateUrl: 'tab2.page.html',
+  styleUrls: ['tab2.page.scss'],
 })
 export class Tab2Page {
-  segment = "10";
+  segment = '10';
   amount: number;
   comment: string;
 
@@ -29,36 +29,36 @@ export class Tab2Page {
 
   issueCard() {
     if (this.amount <= 0) {
-      alert("The amount has to be larger than 0");
+      alert('The amount has to be larger than 0');
       return;
     }
     if (this.comment && this.comment.length > 1000) {
-      alert("Comment cannot have more than 1000 characters");
+      alert('Comment cannot have more than 1000 characters');
     }
     this.confirmIssue();
   }
 
   async confirmIssue() {
     const alert = await this.alertController.create({
-      header: "Confirm",
+      header: 'Confirm',
       message:
-        "Are you sure you want to issue a new gift card? The amount will be <strong>" +
+        'Are you sure you want to issue a new gift card? The amount will be <strong>' +
         this.amount +
-        "</strong>." +
+        '</strong>.' +
         (this.comment
-          ? "<br><br><strong>Comment: </strong>" + this.comment
-          : ""),
+          ? '<br><br><strong>Comment: </strong>' + this.comment
+          : ''),
       buttons: [
         {
-          text: "Cancel",
-          role: "cancel",
-          cssClass: "secondary",
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
           handler: () => {
-            console.log("Confirm Cancel");
+            console.log('Confirm Cancel');
           },
         },
         {
-          text: "Confirm and Share",
+          text: 'Confirm and Share',
           handler: () => this.createCard(),
         },
       ],
@@ -76,9 +76,9 @@ export class Tab2Page {
   private openShare() {
     this.socialSharing
       .share(
-        "Check out my newly issued card!",
-        "GCM Card",
-        "../../assets/images/demo_share_image.png"
+        null,
+        null,
+        '../../assets/images/demo_share_image.png'
       )
       .then(() => {
         this.goToAllCards();
@@ -90,6 +90,6 @@ export class Tab2Page {
   }
 
   private goToAllCards() {
-    this.router.navigate(["/tabs/tab4"]);
+    this.router.navigate(['/tabs/tab4']);
   }
 }

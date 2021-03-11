@@ -33,14 +33,10 @@ export class Tab2Service {
   }
 
   issue(
-    amount: number,
-    shareAsAddress?: string,
-    shareAsType?: string
+    amount: number
   ): Observable<CardListItem> {
     return this.http.post(this.URL + "/issue", {
-      amount,
-      shareAsAddress,
-      shareAsType,
+      amount
     });
   }
 }
